@@ -1,6 +1,7 @@
 # Django Firstclass
 Firstclass is a proxy email backend for Django that allows for global email transformations
-such as automatically create a plain text version of html emails.
+such as automatically creating a plain text version of html emails or automatically creating
+an online version of the email that can be read in browser.
 
 ## Install
 ```bash
