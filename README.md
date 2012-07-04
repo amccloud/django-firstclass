@@ -1,6 +1,7 @@
 # Django Firstclass
 Firstclass is a proxy email backend for Django that allows for global email transformations
-such as automatically create a plain text version of html emails.
+such as automatically creating a plain text version of html emails or automatically creating
+an online version of the email that can be read in browser.
 
 ## Install
 ```bash
@@ -10,20 +11,23 @@ pip install django-firstclass
  - Add ``'firstclass'`` to ``INSTALLED_APPS``
  - Add ``url(r'^email/', include('firstclass.urls'))`` to your urlconf.
  - Set ``EMAIL_BACKEND`` to ``'firstclass.backends.ProxyBackend'``
- - Run ``python manage.py syncdb``
+ - Syncdb
 
 ## Settings
 ### FIRSTCLASS_EMAIL_BACKEND
 The email backend to send processed emails to after they've gone through the middleware.
 
-Default: ``'django.core.mail.backends.smtp.EmailBackend'``
+##### Default
+```python
+FIRSTCLASS_EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+```
 
 ### FIRSTCLASS_MIDDLEWARE
 Firstclass middleware works just like Django middleware. Firstclass applies middleware
 in the order it's defined in ``FIRSTCLASS_MIDDLEWARE``, top-down. You can even create your
 own middleware. See: [Custom Middleware](#custom-middleware)
 
-Default:
+##### Default
 ```python
 FIRSTCLASS_MIDDLEWARE = (
     'firstclass.middleware.online.ViewOnlineMiddleware',
@@ -43,7 +47,7 @@ selector for BeautifulSoup's ``findAll``. Values can either be a formatting stri
 a function that accepts one argument, ``attrs``. All attributes found on the element
 can be used for formatting or will be passed to your function in ``attrs``.
 
-Default:
+##### Default
 ```python
 FIRSTCLASS_PLAINTEXT_RULES = {
     'a': '(%(text)s) %(href)s',
