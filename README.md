@@ -68,6 +68,10 @@ Saves all emails and adds a link to the email body so that they can be viewed on
 in a web browser. Ideally this middleware should come before the ``PlainTextMiddlewware``
 so that the link that is added is converted to plain text.
 
+``ViewOnlineMiddleware`` uses the template ``firstclass/view_online_wrap.html`` to append
+the link to the bottom of the email. You can override this by providing your own in your
+templates directory.
+
 #### Settings
 ##### FIRSTCLASS_VIEWONLINE_AUTH
 If this is ``True`` the user will need to be logged in to view email. The user's email would
@@ -77,10 +81,6 @@ also need to be one of the original recipients of the email.
 ```python
 FIRSTCLASS_VIEWONLINE_AUTH = False
 ```
-
-``ViewOnlineMiddleware`` uses the template ``firstclass/view_online_wrap.html`` to append
-the link to the bottom of the email. You can override this by providing your own in your
-templates directory.
 
 ## Custom Middleware
 Defining custom middleware for Firstclass is simple. Middleware should be a single
