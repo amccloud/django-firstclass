@@ -22,7 +22,7 @@ def image_to_text(attrs):
 FIRSTCLASS_TEXT_ANCHOR = getattr(settings, 'FIRSTCLASS_TEXT_ANCHOR', anchor_to_text)
 FIRSTCLASS_TEXT_IMAGE = getattr(settings, 'FIRSTCLASS_TEXT_IMAGE', image_to_text)
 
-FIRSTCLASS_PLAINTEXT_RULES = {
+FIRSTCLASS_PLAINTEXT_RULES = getattr(settings, 'FIRSTCLASS_PLAINTEXT_RULES', {
     'a': FIRSTCLASS_TEXT_ANCHOR,
     'img': FIRSTCLASS_TEXT_IMAGE,
-}
+})
