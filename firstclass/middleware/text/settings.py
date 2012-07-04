@@ -2,7 +2,7 @@ from django.conf import settings
 
 def anchor_to_text(attrs):
     text = attrs.get('href').strip()
-    title = attrs.get('title', attrs.get('text')).strip()
+    title = attrs.get('title', attrs.get('text', '')).strip()
 
     if text == title or not title:
         return text
@@ -11,7 +11,7 @@ def anchor_to_text(attrs):
 
 def image_to_text(attrs):
     text = attrs.get('src').strip()
-    title = attrs.get('title', attrs.get('alt', None)).strip()
+    title = attrs.get('title', attrs.get('alt', '')).strip()
 
     if not title:
         return text
