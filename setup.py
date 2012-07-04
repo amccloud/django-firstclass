@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-firstclass',
-    version='0.9',
+    version='0.9.1',
     license='MIT',
     author='Andrew McCloud',
     author_email='andrew@amccloud.com',
