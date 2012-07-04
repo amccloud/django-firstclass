@@ -5,7 +5,8 @@ from .settings import FIRSTCLASS_PLAINTEXT_RULES
 
 class PlainTextMiddleware(object):
     def process_message(self, message):
-        message.attach_alternative(message.body, 'text/html')
+        if hasattr(message, 'attach_alternative'):
+            message.attach_alternative(message.body, 'text/html')
 
         soup = BeautifulSoup(message.body)
 
