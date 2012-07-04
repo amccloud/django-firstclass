@@ -11,7 +11,7 @@ def anchor_to_text(attrs):
 
 def image_to_text(attrs):
     text = attrs.get('src').strip()
-    title = attrs.get('title', attrs.get('alt'), None).strip()
+    title = attrs.get('title', attrs.get('alt', None)).strip()
 
     if not title:
         return text
