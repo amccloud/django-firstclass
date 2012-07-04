@@ -2,12 +2,11 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-firstclass',
-    version='0.8',
+    version='0.9',
     license='MIT',
     author='Andrew McCloud',
     author_email='andrew@amccloud.com',
     url='http://github.com/amccloud/django-firstclass/',
-    # description='',
     packages=find_packages(exclude=['tests']),
     install_requires=open('requirements.txt').readlines(),
     zip_safe=False,
