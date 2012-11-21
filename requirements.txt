@@ -1,2 +1,2 @@
-BeautifulSoup==3.2.1
-django-extensions==0.8
+BeautifulSoup>=3.2.1
+django-extensions>=0.8
